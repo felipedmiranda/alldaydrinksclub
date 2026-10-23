@@ -1,0 +1,11 @@
+{
+  "name": "all-day-drinks-club",
+  "private": true,
+  "description": "All Day Drinks Club (Malabar × Barcada) website",
+  "scripts": {
+    "test": "node --test tests/*.test.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
