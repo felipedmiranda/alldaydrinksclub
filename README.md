@@ -30,5 +30,5 @@ It is a plain static page plus one small function, with nothing to install or bu
 ## Hosting details
 
 - `vercel.json`: clean addresses, security headers, one-week image caching, and `/page` sends people to the home page.
-- `robots.txt` and `sitemap.xml` point search engines to https://malabar.ph.
+- `robots.txt` and `sitemap.xml` point search engines to https://www.malabar.ph (Vercel sends malabar.ph to www).
 - `img/share.jpg` is the picture shown when the link is shared (WhatsApp, Facebook, Messenger).
