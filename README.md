@@ -26,3 +26,9 @@ It is a plain static page plus one small function, with nothing to install or bu
 3. Vercel → this project → Settings → Environment Variables: add `RESEND_API_KEY`, then redeploy.
 4. Vercel → Settings → Domains: add `malabar.ph`, `www.malabar.ph`, `barcada.ph` and `www.barcada.ph`. At dotPH, add the DNS records Vercel shows.
 5. Optional: verify malabar.ph in Resend and set `REQUEST_FROM` (for example `All Day Drinks Club <events@malabar.ph>`) so requests can go to any inbox, and `REQUEST_TO` to change who receives them.
+
+## Hosting details
+
+- `vercel.json`: clean addresses, security headers, one-week image caching, and `/page` sends people to the home page.
+- `robots.txt` and `sitemap.xml` point search engines to https://malabar.ph.
+- `img/share.jpg` is the picture shown when the link is shared (WhatsApp, Facebook, Messenger).
