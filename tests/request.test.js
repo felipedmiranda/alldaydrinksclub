@@ -49,12 +49,12 @@ test("a request needs a name, a real email and the event", () => {
   assert.equal(handler.clean(good).email, "ana@firm.ph");
 });
 
-test("a good request is emailed to Felipe, with the visitor as reply-to", async () => {
+test("a good request is emailed to Felipe (his Resend account address), with the visitor as reply-to", async () => {
   const r = await call(good);
   assert.equal(r.code, 200);
   assert.equal(sent.length, 1);
   assert.equal(sent[0].url, "https://api.resend.com/emails");
-  assert.deepEqual(sent[0].body.to, ["felipe@bolero.ph"]);
+  assert.deepEqual(sent[0].body.to, ["fdmarquitecto@gmail.com"]);
   assert.equal(sent[0].body.reply_to, "ana@firm.ph");
   assert.match(sent[0].body.subject, /Wedding · 2026-12-12 · Ana Cruz/);
   assert.match(sent[0].body.text, /Mobile: 0917 000 0000\n/);

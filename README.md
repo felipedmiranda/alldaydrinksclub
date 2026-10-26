@@ -25,7 +25,7 @@ It is a plain static page plus one small function, with nothing to install or bu
 2. Resend: create a free account at resend.com with felipe@bolero.ph, then create an API key.
 3. Vercel → this project → Settings → Environment Variables: add `RESEND_API_KEY`, then redeploy.
 4. Vercel → Settings → Domains: add `malabar.ph`, `www.malabar.ph`, `barcada.ph` and `www.barcada.ph`. At dotPH, add the DNS records Vercel shows.
-5. Optional: verify malabar.ph in Resend and set `REQUEST_FROM` (for example `All Day Drinks Club <events@malabar.ph>`) so requests can go to any inbox, and `REQUEST_TO` to change who receives them.
+5. Optional: verify malabar.ph in Resend and set `REQUEST_FROM` (for example `All Day Drinks Club <events@malabar.ph>`) so requests can go to any inbox, and `REQUEST_TO` to change who receives them (default: fdmarquitecto@gmail.com, the Resend account, the only address Resend delivers to before a domain is verified).
 
 ## Hosting details
 

@@ -1,12 +1,14 @@
 // Event requests from the website, emailed to Felipe through Resend (https://resend.com).
 // Vercel settings → Environment Variables:
 //   RESEND_API_KEY  the key from Resend (required)
-//   REQUEST_TO      who receives requests (default felipe@bolero.ph)
+//   REQUEST_TO      who receives requests (default fdmarquitecto@gmail.com)
 //   REQUEST_FROM    the sender; until malabar.ph is verified in Resend keep the default,
 //                   which only delivers to the email address of the Resend account itself.
 const crypto = require("node:crypto");
 
-const TO = process.env.REQUEST_TO || "felipe@bolero.ph";
+// The Resend account is fdmarquitecto@gmail.com: until a domain is verified in Resend, its
+// test sender can only deliver there. Set REQUEST_TO (e.g. felipe@bolero.ph) after verifying.
+const TO = process.env.REQUEST_TO || "fdmarquitecto@gmail.com";
 const FROM =
   process.env.REQUEST_FROM || "All Day Drinks Club <onboarding@resend.dev>";
 
