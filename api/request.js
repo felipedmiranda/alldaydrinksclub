@@ -69,12 +69,9 @@ async function handler(req, res) {
   const r = clean(input);
   if (r.error) return res.status(400).json({ error: r.error });
   if (!process.env.RESEND_API_KEY)
-    return res
-      .status(503)
-      .json({
-        error:
-          "Requests are not switched on yet. Please email felipe@bolero.ph.",
-      });
+    return res.status(503).json({
+      error: "Requests are not switched on yet. Please email felipe@bolero.ph.",
+    });
   const body = email(r);
   // The same request sent twice (a double tap, a retry) is emailed once.
   const key = crypto
@@ -90,12 +87,16 @@ async function handler(req, res) {
     },
     body: JSON.stringify(body),
   }).catch(() => null);
-  if (!sent || !sent.ok)
-    return res
-      .status(502)
-      .json({
-        error: "The request did not go through. Please email felipe@bolero.ph.",
-      });
+  if (!sent || !sent.ok) {
+    // Resend's reason goes to Vercel → Logs (never to the visitor).
+    const why = sent
+      ? `${sent.status} ${await sent.text().catch(() => "")}`
+      : "no response";
+    console.error("[request] Resend refused the email:", why);
+    return res.status(502).json({
+      error: "The request did not go through. Please email felipe@bolero.ph.",
+    });
+  }
   return res.status(200).json({ ok: true });
 }
 
